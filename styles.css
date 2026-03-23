@@ -1,0 +1,146 @@
+/* Charity: water Brand Colors
+
+Primary Colors:
+- Yellow:     #FFC907
+- Blue:       #2E9DF7
+
+Secondary Colors:
+- Light Blue: #8BD1CB
+- Green:      #4FCB53
+- Orange:     #FF902A
+- Red:        #F5402C
+- Dark Green: #159A48
+- Pink:       #F16061
+
+*/
+.game {
+ 
+  width: 1000px;
+  height: 300px;
+  border: 1px solid #000; 
+  margin:auto;
+  display: flex;
+
+}
+
+#can{
+  width: 90px;
+  height: 90px;
+  background-image: url(img/water-can-transparent.png);
+  background-size: 90px 90px;
+  position: relative;
+  top: 230px;
+  right: 15px;
+
+}
+
+.jump {
+  animation: jump 0.3s linear;
+}
+
+@keyframes jump {
+  0% { top: 230px; }
+  30% { top: 160px; }
+  50% { top: 100px; }
+  80% { top: 160px; }
+  100% { top: 230px; }
+} 
+
+#tree{
+width: 60px;
+height: 70px;
+position: relative;
+top: 230px;
+left: 600px;
+
+background-image: url(img/tree.png);
+background-size: 60px 80px;
+animation: none; /* Paused until start */
+}
+
+@keyframes block{
+  0% { left: 600px; }
+  100% { left: -350px; }
+}
+
+.score-card {
+  font-size: 40px;
+  margin: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.score-card .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-card .label {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hidden {
+  display: none;
+}
+
+#restart-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.start-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  .game {
+    width: 100%;
+    height: 200px;
+  }
+
+  #can {
+    width: 60px;
+    height: 60px;
+    top: 150px;
+    right: 10px;
+  }
+
+  #tree {
+    width: 40px;
+    height: 50px;
+    top: 150px;
+    left: 400px;
+    background-size: 40px 50px;
+    animation-duration: 0.8s; /* Faster animation for smaller screens */
+  }
+
+  .score-card {
+    font-size: 24px;
+    gap: 10px;
+  }
+
+  .score-card .label {
+    font-size: 14px;
+  }
