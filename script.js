@@ -175,4 +175,5 @@ setHighScore(0); // Start with 00:00 on load
 
 // Start button is visible on load
 
+
    

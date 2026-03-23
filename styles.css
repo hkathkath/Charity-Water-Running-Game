@@ -13,10 +13,25 @@ Secondary Colors:
 - Pink:       #F16061
 
 */
+
+.logo {
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  width: 200px;
+  height: auto;
+}
+
+.body {
+  background-color: #FFF7E1;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
 .game {
  
   width: 1000px;
   height: 300px;
+  background-color: #77A8BB;
   border: 1px solid #000; 
   margin:auto;
   display: flex;
@@ -53,7 +68,7 @@ position: relative;
 top: 230px;
 left: 600px;
 
-background-image: url(img/tree.png);
+background-image: url(img/t.png);
 background-size: 60px 80px;
 animation: none; /* Paused until start */
 }
@@ -64,6 +79,7 @@ animation: none; /* Paused until start */
 }
 
 .score-card {
+  color: white;
   font-size: 40px;
   margin: 20px;
   display: flex;
@@ -80,6 +96,7 @@ animation: none; /* Paused until start */
 .score-card .label {
   font-size: 18px;
   font-weight: bold;
+  color: white ;
   text-transform: uppercase;
 }
 
@@ -89,29 +106,67 @@ animation: none; /* Paused until start */
 
 #restart-button {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.start-button {
-  position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 15px 30px;
   font-size: 24px;
   cursor: pointer;
-  background-color: #4CAF50;
+  background-color: #BF6C46;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+
+.start-button {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #BF6C46;
   color: white;
   border: none;
   border-radius: 5px;
 }
 
 .start-button:hover {
-  background-color: #45a049;
+  background-color: #BF6C46;
+}
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding: 12px 8px;
+    background: white;
+  }
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 8px;
+  width: 100%;
+}
+
+.footer-row a {
+  
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 600px) {
@@ -144,3 +199,4 @@ animation: none; /* Paused until start */
   .score-card .label {
     font-size: 14px;
   }
+}
