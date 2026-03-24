@@ -22,6 +22,21 @@ Secondary Colors:
   height: auto;
 }
 
+.halfway-message {
+  position: absolute;
+  top: 200px;
+  right: 700px;
+  font-size: 18px;
+  color: #FFC907;
+  font-weight: bold;
+  font-family: Proxima Nova, sans-serif;
+  z-index: 20;
+}
+
+.hidden {
+  display: none;
+}
+
 body {
   background-color: #FFF7E1;
 
@@ -32,16 +47,40 @@ body {
   width: 1000px;
   height: 300px;
   background-color: #77ABBB;
+  background-image: url(img/background.png);
+  background-repeat: repeat-x;
+  background-position: 0 1px;
+  background-size: auto 400px;
+  
   border: 1px solid #000; 
   margin:auto;
-  display: flex;
+  display: flex;  position: relative;  animation: none;
 
+}
+
+.game.playing {
+  animation: land-move var(--land-duration, 100s) linear infinite;
+}
+
+@keyframes land-move {
+  0% { background-position: 0 1px; }
+  100% { background-position: 100% 1px; }
+}
+
+#village {
+  position: absolute;
+  top: 110px;
+  right: -200px;
+  transform: translateX(-50%);
+  width: 400px;
+  height: auto;
+  z-index: 50;
 }
 
 #can{
   width: 90px;
   height: 90px;
-  background-image: url(img/water-can-transparent.png);
+  background-image: url(img/water-can.png);
   background-size: 90px 90px;
   position: relative;
   top: 230px;
@@ -51,6 +90,10 @@ body {
 
 .jump {
   animation: jump 0.3s linear;
+}
+
+.flip {
+  transform: rotate(-90deg);
 }
 
 @keyframes jump {
@@ -78,14 +121,7 @@ animation: none; /* Paused until start */
   100% { left: -350px; }
 }
 
-#village {
-  position: absolute;
-  top: 272px;
-  right: 60px;
-  transform: translateX(-50%);
-  width: 400px;
-  height: auto;
-}
+
 
 .difficulty {
   display: flex;
@@ -103,6 +139,7 @@ animation: none; /* Paused until start */
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: Georgia;
 }
 
 .difficulty-button:hover {
@@ -118,11 +155,11 @@ animation: none; /* Paused until start */
 .score-card {
   display: flex;
   gap: 40px;
-  align-items: left];
+  align-items: flex-start;
   justify-content: center;
   color: white;
   font-size: 40px;
- 
+  font-family: Georgia;
   
 }
 
@@ -136,14 +173,17 @@ animation: none; /* Paused until start */
 .score-card .label {
   font-size: 18px;
   font-weight: bold;
-  color: white ;
+  color: #FFC907 ;
   text-transform: uppercase;
  
 }
 
-
+.hidden {
+  display: none;
+}
 
 #restart-button {
+  font-family: Georgia;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -159,6 +199,7 @@ animation: none; /* Paused until start */
 
 
 .start-button {
+  font-family: Georgia;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -183,6 +224,7 @@ animation: none; /* Paused until start */
     font-size: 14px;
     padding: 12px 8px;
     background: white;
+    font-family: Georgia;
   }
 
 .footer-row {
