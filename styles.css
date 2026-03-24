@@ -22,16 +22,16 @@ Secondary Colors:
   height: auto;
 }
 
-.body {
+body {
   background-color: #FFF7E1;
-  font-family: 'Arial', sans-serif;
-  color: #333;
+
+  
 }
 .game {
  
   width: 1000px;
   height: 300px;
-  background-color: #77A8BB;
+  background-color: #77ABBB;
   border: 1px solid #000; 
   margin:auto;
   display: flex;
@@ -78,12 +78,52 @@ animation: none; /* Paused until start */
   100% { left: -350px; }
 }
 
+#village {
+  position: absolute;
+  top: 272px;
+  right: 60px;
+  transform: translateX(-50%);
+  width: 400px;
+  height: auto;
+}
+
+.difficulty {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  margin: -100px auto 0;
+}
+
+.difficulty-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #77ABBB;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.difficulty-button:hover {
+  background-color: #77ABBB;
+}
+
+.difficulty-button.selected {
+  background-color: #FFC907;
+  color: black;
+}
+
+
 .score-card {
+  display: flex;
+  gap: 40px;
+  align-items: left];
+  justify-content: center;
   color: white;
   font-size: 40px;
-  margin: 20px;
-  display: flex;
-  gap: 20px;
+ 
+  
 }
 
 .score-card .stat {
@@ -98,11 +138,10 @@ animation: none; /* Paused until start */
   font-weight: bold;
   color: white ;
   text-transform: uppercase;
+ 
 }
 
-.hidden {
-  display: none;
-}
+
 
 #restart-button {
   position: absolute;

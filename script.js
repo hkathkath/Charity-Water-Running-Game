@@ -6,6 +6,22 @@ const scoreElement = document.querySelector('.score-card .score');
 const highScoreElement = document.querySelector('.score-card .high-score');
 const restartButton = document.getElementById('restart-button');
 const startButton = document.getElementById('start-button');
+const easyButton = document.getElementById('easy-button');
+const mediumButton = document.getElementById('medium-button');
+const hardButton = document.getElementById('hard-button');
+const village = document.getElementById('village');
+
+let difficulty = 'medium'; // default
+const durations = {
+  easy: { desktop: 1.5, mobile: 1.2 },
+  medium: { desktop: 1.0, mobile: 0.8 },
+  hard: { desktop: 0.7, mobile: 0.5 }
+};
+const villageThresholds = {
+  easy: 30,
+  medium: 60,
+  hard: 90
+};
 
 let isGameOver = false;
 let isPlaying = false; // true once the game timer is running
@@ -60,6 +76,19 @@ startButton.addEventListener('click', function() {
   startButton.classList.add('hidden');
 });
 
+// Difficulty button event listeners
+easyButton.addEventListener('click', () => setDifficulty('easy'));
+mediumButton.addEventListener('click', () => setDifficulty('medium'));
+hardButton.addEventListener('click', () => setDifficulty('hard'));
+
+function setDifficulty(level) {
+  difficulty = level;
+  // Remove selected class from all buttons
+  document.querySelectorAll('.difficulty-button').forEach(btn => btn.classList.remove('selected'));
+  // Add selected class to the clicked button
+  document.getElementById(`${level}-button`).classList.add('selected');
+}
+
 // Add click to jump on mobile
 if (window.innerWidth <= 600) {
   document.addEventListener('click', function(event) {
@@ -108,6 +137,9 @@ function startGame() {
   score = 0;
   setScore(score);
 
+  // Hide village
+  village.classList.add('hidden');
+
   // Reset can position and tree animation
   can.classList.remove('jump');
   tree.style.animation = 'none';
@@ -116,11 +148,12 @@ function startGame() {
   tree.offsetWidth;
   tree.style.animation = '';
 
-  // Start the tree animation
+  // Start the tree animation with selected difficulty
+  const dur = durations[difficulty];
   if (window.innerWidth <= 600) {
-    tree.style.animation = 'block 0.8s infinite linear';
+    tree.style.animation = `block ${dur.mobile}s infinite linear`;
   } else {
-    tree.style.animation = 'block 1s infinite linear';
+    tree.style.animation = `block ${dur.desktop}s infinite linear`;
   }
 
   // Start counting
@@ -151,6 +184,9 @@ function countScore() {
   clearInterval(scoreInterval);
   scoreInterval = setInterval(() => {
     setScore(score + 1);
+    if (score === villageThresholds[difficulty]) {
+      village.classList.remove('hidden');
+    }
   }, 1000); // Increment every second
 }
 
@@ -172,6 +208,9 @@ function setHighScore(newScore) {
 // Initialize display
 setScore(0);
 setHighScore(0); // Start with 00:00 on load
+
+// Set default difficulty to medium
+setDifficulty('medium');
 
 // Start button is visible on load
 
