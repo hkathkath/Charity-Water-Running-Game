@@ -291,8 +291,8 @@ function setHighScore(newScore) {
 setScore(0);
 setHighScore(0); // Start with 00:00 on load
 
-// Set default difficulty to medium
-setDifficulty('medium');
+// Set default difficulty to easy
+setDifficulty('easy');
 
 // Initialize land duration for default difficulty
 document.documentElement.style.setProperty('--land-duration', landDurations[difficulty]);

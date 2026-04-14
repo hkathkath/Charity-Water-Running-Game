@@ -51,6 +51,8 @@ body {
   background-repeat: repeat-x;
   background-position: 0 1px;
   background-size: auto 400px;
+  background-attachment: scroll;
+  will-change: background-position;
   
   border: 1px solid #000; 
   margin:auto;
@@ -63,8 +65,8 @@ body {
 }
 
 @keyframes land-move {
-  0% { background-position: 0 1px; }
-  100% { background-position: 100% 1px; }
+  from { background-position: 0 1px; }
+  to { background-position: -1000px 1px; }
 }
 
 #village {
@@ -212,6 +214,8 @@ animation: none; /* Paused until start */
   border: none;
   border-radius: 5px;
 }
+
+
 
 .start-button:hover {
   background-color: #BF6C46;
